@@ -1,9 +1,24 @@
 # -*- coding: utf-8 -*-
-"""functions used to compute the loss."""
+"""a function used to compute the loss."""
 
 import numpy as np
 
-def compute_loss_mse(y, tx, w):
-  e = y - np.dot(tx, w)
-  mse = np.sum(np.square(e)) / (2*len(y))
-  return mse
+
+def calculate_mse(e):
+    """Calculate the mse for vector e."""
+    return 1/2*np.mean(e**2)
+
+
+def calculate_mae(e):
+    """Calculate the mae for vector e."""
+    return np.mean(np.abs(e))
+
+
+def compute_loss(y, tx, w):
+    """Calculate the loss.
+
+    You can calculate the loss using mse or mae.
+    """
+    e = y - tx.dot(w)
+    return calculate_mse(e)
+    # return calculate_mae(e)

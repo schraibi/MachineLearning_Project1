@@ -25,6 +25,6 @@ def grid_search(y, tx, w0, w1):
     losses = np.array([])
     for w0_elem in w0:
         for w1_elem in w1:
-            losses = np.append(losses, compute_loss_mse(y, tx, [w0_elem, w1_elem]))
+            losses = np.append(losses, compute_loss(y, tx, [w0_elem, w1_elem]))
     losses = losses.reshape((len(w0),len(w1)))
     return losses
