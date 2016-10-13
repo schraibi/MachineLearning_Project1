@@ -13,6 +13,10 @@ def calculate_mae(e):
     """Calculate the mae for vector e."""
     return np.mean(np.abs(e))
 
+def calculate_rmse(e):
+    """Calculate the rmse for vector e."""
+    return np.sqrt(2*calculate_mse(e))
+
 
 def compute_loss(y, tx, w):
     """Calculate the loss.
@@ -22,3 +26,4 @@ def compute_loss(y, tx, w):
     e = y - tx.dot(w)
     return calculate_mse(e)
     # return calculate_mae(e)
+    #return calculate_rmse(e)
