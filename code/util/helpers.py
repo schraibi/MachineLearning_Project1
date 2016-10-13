@@ -72,3 +72,14 @@ def batch_iter(y, tx, batch_size, num_batches=1, shuffle=True):
         end_index = min((batch_num + 1) * batch_size, data_size)
         if start_index != end_index:
             yield shuffled_y[start_index:end_index], shuffled_tx[start_index:end_index]
+
+
+def build_poly(x, degree): # function fi is sum of a data of all dimensions, powered to i in (1,degree)
+    """polynomial basis functions for input data x, for j=0 up to j=degree."""
+    fi=len(x)*[1]
+    new_col = [0]*len(x)
+    for i in range(1,degree+1):
+        for j in range(len(x[i])):
+            new_col = new_col + np.apply_along_axis(pow, 0, x[:,j], i)
+        fi= np.column_stack((fi, new_col))
+    return fi 
