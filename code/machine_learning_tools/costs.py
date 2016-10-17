@@ -27,3 +27,7 @@ def compute_loss(y, tx, w):
     return calculate_mse(e)
     # return calculate_mae(e)
     #return calculate_rmse(e)
+
+def compute_mse_ridge(y, tx, w, lamb):
+    e = y-tx.dot(w)
+    return 1/2/len(y)*(e.transpose()).dot(e) + lamb*(w.transpose().dot(w))
