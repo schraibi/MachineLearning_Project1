@@ -20,7 +20,7 @@ In this report we summarize our activities and results done for Project I. We re
 Our data set (y, X) consists of 25'000 records. Each one of the input variable X is initially of dimensionality 30. y is a binary value (whether it is a Higgs Boson or not). Out of the 30 features only one is discrete and can take 4 different values. Some features have a lot of missing values (-999).
 
 \section{Data visualization and cleaning}
-
+We replaced the missing values accross the different features in the following way : We learn the distribution of each feature from the non-missing values (computing min, max, mean and variance) and then we randomly assign values according to this distribution to the missing values.
 \section{Ridge regression}
 
 \section{Feature transformations}
